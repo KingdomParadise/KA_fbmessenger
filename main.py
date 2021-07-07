@@ -12,7 +12,6 @@ except ImportError:
     import tkinter.ttk as ttk
     py3 = True
 
-# import auto_messenger_final_support
 
 def vp_start_gui():
     '''Starting point when module is the main routine.'''

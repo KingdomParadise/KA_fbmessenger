@@ -102,7 +102,6 @@ def ContactFetcher(driver,your_id,minimum_contacts):
             lelem = moving_bars.find_elements_by_tag_name('div')[-1]
 
             
-
             time.sleep(3)
             print("=> moving to last bar")
             lelem.location_once_scrolled_into_view

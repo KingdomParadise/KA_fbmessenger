@@ -12,7 +12,7 @@ python ./main.py
 ```
 OR
 ```
-py ./main.py 
+py ./main.py  
 ```
 
 

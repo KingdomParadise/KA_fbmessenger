@@ -31,7 +31,7 @@ def SERVER_MESSAGE(chatid,message):
         if received_messages is not None:
             text = remove_emojis(received_messages).split(' ')
             text = [x for x in text if not str(x).startswith('\\')] 
-            text = " ".join(text)
+            text = " ".join(text)  
             text = str(text).strip()
             print(text)
             return  text
@@ -42,6 +42,7 @@ def SERVER_MESSAGE(chatid,message):
             return None
 
  
+
 if __name__ == "__main__":
     chatid= '0001'
     SERVER_MESSAGE(chatid,str("mashood@gmail.com is my email 40100 hello")) 
