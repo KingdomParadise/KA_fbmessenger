@@ -1,5 +1,6 @@
-# Mazamamedia_fbmessenger
-Facebook Automessenfer with custom chatbot API
+# konectai_fbmessenger
+Facebook Automessenfer with custom chatbot API.
+There must be CHAT_API server running at http://localhost:8000/
 
 
 ## Run the Project
