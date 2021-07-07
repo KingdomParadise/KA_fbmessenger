@@ -36,7 +36,10 @@ def SERVER_MESSAGE(chatid,message):
             print(text)
             return  text
         else:
-            return '_'
+            print("/"*50)
+            print("-->> CHAT API is returning NONE. So BOT will not Reply.")
+            print("/"*50)
+            return None
 
  
 if __name__ == "__main__":

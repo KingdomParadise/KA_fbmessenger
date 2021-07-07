@@ -163,23 +163,28 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
 
 
 
+                                if len(required_client_message)!=0:
+                                    print(f"-->> API CALL for ( {required_client_message} )")
+                                    msg = SERVER_MESSAGE(TARGETCHATID,str(required_client_message))
+                                    if msg is not None:
+                                        print(f"-->> API Response ( {msg} )")
+                                        if str(msg).startswith('"') and str(msg).endswith('"'):
+                                            msg = msg[1:-1] 
+                                        textAreaElem = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/div[2]/div[1]/div/div/div/div/div[2]/div/div/div")
+                                        try:
+                                            for x in msg:
+                                                textAreaElem.send_keys(str(x))
+                                                time.sleep(0.05)  
+                                            textAreaElem.send_keys(Keys.RETURN) 
+                                            time_locker = time.time() 
+                                        except:
+                                            print("stale element reference")
+                                    else:
+                                        print("-->> GOT NONE from API. So ignoring this BOT Reply")
+                                else:
+                                    print("-->> Typing ... ")
 
-                                print(f"-->> API CALL for ( {required_client_message} )")
-                                msg = SERVER_MESSAGE(TARGETCHATID,str(required_client_message))
-                                print(f"-->> API Response ( {msg} )")
 
-                                if str(msg).startswith('"') and str(msg).endswith('"'):
-                                    msg = msg[1:-1] 
-
-                                textAreaElem = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/div[2]/div[1]/div/div/div/div/div[2]/div/div/div")
-                                try:
-                                    for x in msg:
-                                        textAreaElem.send_keys(str(x))
-                                        time.sleep(0.05)  
-                                    textAreaElem.send_keys(Keys.RETURN) 
-                                    time_locker = time.time() 
-                                except:
-                                    print("stale element reference")
                             else:print("no condition meet")
                                     
 
