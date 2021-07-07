@@ -103,12 +103,12 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
                             print('//'*30)
 
                             
-                            if 'bye' in mymsgs[-1][0].lower():
-                                print("bye is in message")
-                                print(f"-->> bye is in message -- moving to next user")
+                            if 'bye' in mymsgs[-1][0].lower() or 'thanks' in mymsgs[-1][0].lower() or 'thank you' in mymsgs[-1][0].lower() or 'thank' in mymsgs[-1][0].lower():
+                                print("Thanks / Bye is in message")
+                                print(f"-->> Thanks / Bye is in message -- moving to next user")
                                 break
                             else:
-                                print("No BYE")
+                                print("No Thanks / Bye")
 
 
 
@@ -192,129 +192,8 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
                         print(e.__traceback__.tb_lineno)
 
                 CHAT_CONTEXT_HANDLER()
-
-
-
  
-                
-                
-
-                
-            #     # INITILIZATION OF CHAT BY BOT
-            #     print("INITILIZATION OF CHAT BY BOT")
-            #     time.sleep(2)
-                
-                
-            #     textAreaElem = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/div[2]/div[1]/div/div/div/div/div[2]/div/div/div")
-                
-                    
-            #     try:
-            #         for log in MESSAGES_LOG:
-            #             if log['id']== TARGETCHATID and log['init_messgae_handler']==0:   
-            #                 firstmessage ="Hello ..."
-            #                 for textindex, char in enumerate(firstmessage):
-            #                     textAreaElem.send_keys(char)
-            #                     time.sleep(0.05)
-                                
-
-            #                 sender = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/span[2]/div')
-            #                 sender.click()
-            #                 log['init_messgae_handler']=1
-                            
-            #             # else:log['init_messgae_handler']=1
-            #     except:print("stale element reference")
-                
-            #     def initer():
-            #         global BOTINITTIME
-            #         global total_received_messages
-            #         global loop_counter
-            #         BOTINITTIME = int(time.time())
-            #         total_received_messages = 0
-            #         loop_counter=0
-            #         def CHATTER():
-            #             global BOTINITTIME
-            #             global total_received_messages
-            #             global loop_counter
-            #             global SESSIONAL_LEN
-            #             loop_counter=loop_counter+1
-            #             print("_______________________________________")
-            #             print("_______________________________________")
-            #             print("Loop__Counter__", loop_counter)
-            #             time.sleep(5)
-            #             print("Grabbing Chat Container ...") 
-            #             textAreaElem = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/div[2]/div[1]/div/div/div/div/div[2]/div/div/div")
-            #             chat_container = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[1]/div[1]/div/div/div[3]')
-            #             chats=chat_container.get_attribute('innerHTML')
-            #             me ="ljqsnud1"
-            #             friend="oo9gr5id"
-            #             # we have to read friend mesage
-            #             print("Making soup ....")
-            #             soup = BeautifulSoup(chats, 'lxml') 
-            #             received_messages = soup.select('div.oo9gr5id')
-            #             sent_messages = soup.select('div.ljqsnud1')
-            #             # QUERY = received_messages[-1].text
-            #             try:
-            #                 received_message_len=len(received_messages)
-            #             except TypeError:
-            #                 received_message_len=int(received_messages)
-                        
-                        
-            #             print("Comparing the Results ...")
-            #             print("Comaprison Result "+str(total_received_messages)+"_____"+str(received_message_len)) 
-            #             SESSIONAL_LEN = received_message_len
-            #             WAITING_INTERVAL=int(max_wait_for_reply)
-            #             if  (time.time()-BOTINITTIME>=WAITING_INTERVAL):
-            #                 if len(soup.select('div.oo9gr5id')) == total_received_messages:
-            #                 # print("** firend didn't responnd in 30 seconds.. MOVING TO NEXT ")
-            #                     return 'next'
-                        
-                        
-            #             try:
-            #                 try:
-            #                     if received_message_len<total_received_messages:
-            #                         total_received_messages,received_messages = received_messages,total_received_messages
-            #                 except:pass
-            #                 if total_received_messages<received_message_len:
-                                
-            #                     # INITILIZATION OF CHAT BY BOT
-            #                     print("Sending new mesage ... ") 
-            #                     QUERY = received_messages[-1].text
-            #                     if received_message_len<1:
-            #                         QUERY = "Hello " 
-            #                     DATA_RECEIVED = json.loads(SERVER_MESSAGE("unknown",str(QUERY)))
-            #                     total_received_messages=received_message_len
-            #                     time.sleep(2) 
-                                
-                                
-            #                     textAreaElem = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/div[2]/div[1]/div/div/div/div/div[2]/div/div/div")
-            #                     try:
-            #                         for log in MESSAGES_LOG:
-            #                             if log['id']== TARGETCHATID and log['sessional_len']<received_message_len:
-            #                                 for char in str(DATA_RECEIVED):
-            #                                     textAreaElem.send_keys(str(char))
-            #                                     time.sleep(0.05)
-            #                                 time.sleep(2)
-            #                                 sender = driver.find_element_by_xpath('/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[2]/div/div/div/div/div/div[1]/div[2]/div/div/div/div[2]/div/form/div/div[3]/span[2]/div')
-            #                                 sender.click()
-            #                                 BOTINITTIME = int(time.time())
-            #                     except:print("stale element reference")
-                                
-            #                     print ("Loop again Started ... new message", )
-            #                     CHATTER()
-            #                 time.sleep(2) 
-            #                 CHATTER()      
-            #             except TypeError:CHATTER()    
-            #         CHATTER()
-            #     initer()
-            #     print("**__________________Moving to next Friend ")
-            #     for log in MESSAGES_LOG:
-            #         if log['id']== TARGETCHATID:
-            #             log['sessional_len'] = SESSIONAL_LEN
-            #     print(MESSAGES_LOG)
-            #     uindex=index
-            # # if int(uindex)==(len(IDLIST)-1):
-            # #     driver.quit()
-            # #     break
+        
         return True
     except Exception as e:
         print("*"*50)
