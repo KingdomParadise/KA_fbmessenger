@@ -28,14 +28,15 @@ def SERVER_MESSAGE(chatid,message):
                 u"\u3030"
                             "]+", re.UNICODE)
             return re.sub(emoj, '', data)
-        text = remove_emojis(received_messages)
-        text = remove_emojis(received_messages).split(' ')
-        text = [x for x in text if not str(x).startswith('\\')] 
-        text = " ".join(text)
-        text = str(text).strip()
-        print(text)
-        return  text
- 
+        if received_messages is not None:
+            text = remove_emojis(received_messages).split(' ')
+            text = [x for x in text if not str(x).startswith('\\')] 
+            text = " ".join(text)
+            text = str(text).strip()
+            print(text)
+            return  text
+        else:
+            return '_'
 
  
 if __name__ == "__main__":
