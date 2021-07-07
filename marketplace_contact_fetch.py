@@ -12,28 +12,6 @@ from api import SERVER_MESSAGE
 def ContactFetcher(driver,your_id,minimum_contacts):
     target_index_seeker = 0
     IDLIST = [] 
-    # LOGIN_TYPE = 0 
-    
-    # EMAILID = input("Enter your Email ID: ") 
-    # PASSWORD = getpass.getpass('Password:') 
-
-    # your_id=int(input("Your facebook messenger id  = "))
-    # minimum_contacts=int(input("Minimum Contacts to be fetched = "))
-
-
-    # driver = webdriver.Chrome(executable_path=os.path.join(os.getcwd(),'chromedriver.exe'),options=chrome_options)
-    # print("Loading facebook.com ...")
-    # driver.get('https://web.facebook.com/')
-    # time.sleep(5)
-    # print("Starting Logging in Procees ...")
-
-    # driver.find_element_by_id('email').send_keys(EMAILID)
-    # driver.find_element_by_id('pass').send_keys(PASSWORD)
-    # time.sleep(3)
-    # driver.find_element_by_name('login').click()
-    # print("Logging in ...")
-    # time.sleep(15)
-
 
     
     print("Opening Messenger ...")
@@ -43,10 +21,7 @@ def ContactFetcher(driver,your_id,minimum_contacts):
     grid=driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div/div[3]/div[1]/div[2]/div")
     # grid.find_elements_by_tag_name('div')[target_index_seeker].click()
 
-
-# /html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div/div[3]/div[1]/div[2]/div/div[2]
-
-
+ 
     grid = grid.find_elements_by_tag_name('div')
     for index in range(1,100):
         try:
@@ -140,49 +115,4 @@ def ContactFetcher(driver,your_id,minimum_contacts):
             continue
 
 
-
-
-# target_html = driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div[2]")
-# soup = BeautifulSoup(target_html.get_attribute("innerHTML"), 'lxml')
-# print(len(str(soup)))
-
-# grid=driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div/div[3]/div[1]/div[2]/div")
-
-# soup = BeautifulSoup(grid.get_attribute("innerHTML"), 'lxml')
-# print(len(str(soup)))
-
-
-# time.sleep(5)
-
  
-# grid2=driver.find_element_by_xpath("/html/body/div[1]/div/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div[2]")
- 
-# grid2.element.location_once_scrolled_into_view
-
-
-
-
-# grid2 = grid2.get_attribute("innerHTML")
-# soup = BeautifulSoup(grid2, 'lxml')
-
-# print(soup)
-
-# ids = [x.select('a')[0]['href'] for x in soup.select('div.l9j0dhe7') if x.select('a')!=[]]
-# soup = [x.select('a')[0].select('span.a8c37x1j.ni8dbmo4.stjgntxs.l9j0dhe7.ltmttdrg.g0qnabr5')[0].text.replace('\n','').strip() for x in soup.select('div.l9j0dhe7') if x.select('a')!=[]]
-# names = [re.sub(' +', ' ',x) for x in soup]
-# dictionary = dict(zip(names, ids))
-# print(dictionary)
-# print(len(ids))
-
-
-
-
-        
-# file=''
-# file = open('tes.html', 'r').read()
-# soup = BeautifulSoup(file, 'lxml')
-# ids = [x.select('a')[0]['href'].replace('/messages/t/','')[:-1] for x in soup.select('div.l9j0dhe7') if x.select('a')!=[]]
-# soup = [x.select('a')[0].select('span.a8c37x1j.ni8dbmo4.stjgntxs.l9j0dhe7.ltmttdrg.g0qnabr5')[0].text.replace('\n','').strip() for x in soup.select('div.l9j0dhe7') if x.select('a')!=[]]
-# names = [re.sub(' +', ' ',x) for x in soup]
-# dictionary = dict(zip(names, ids))
-# [print(x, "__________" ,dictionary[x]) for x in dictionary]

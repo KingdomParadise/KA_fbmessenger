@@ -24,7 +24,7 @@ def SERVER_MESSAGE(chatid,message):
                 u"\u23cf"
                 u"\u23e9"
                 u"\u231a"
-                u"\ufe0f"  # dingbats
+                u"\ufe0f"  
                 u"\u3030"
                             "]+", re.UNICODE)
             return re.sub(emoj, '', data)

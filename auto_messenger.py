@@ -184,19 +184,13 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
                                         break
                                 else:
                                     print("-->> Typing ... ")
-
-
                             else:print("no condition meet")
                                     
 
-
-
-                            
                             print("#"*20)  
                     except Exception as e:
                         print(e)
                         print(e.__traceback__.tb_lineno)
-
                 CHAT_CONTEXT_HANDLER()
  
         
@@ -207,5 +201,3 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
         print(e)
         print("*"*50)
         return False            
-
-
