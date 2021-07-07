@@ -181,6 +181,7 @@ def BOT_THREAD_STARTER(driver,EMAILID,PASSWORD,your_id,minimum_contacts,max_wait
                                             print("stale element reference")
                                     else:
                                         print("-->> GOT NONE from API. So ignoring this BOT Reply")
+                                        break
                                 else:
                                     print("-->> Typing ... ")
 
