@@ -1,12 +1,18 @@
 
 import requests,json,re,emoji
-def SERVER_MESSAGE(chatid,message):
-  
-        url = "http://localhost:8000/"
-        received_messages =  requests.post(url,data={'chatid':chatid,'message':message}).json()['message']
-        if type(received_messages) is list:received_messages = " ".join(received_messages)
-        # print(received_messages)
-        def remove_emojis(data):
+ 
+
+import requests,json
+def SERVER_MESSAGE(sender,message):
+    url="http://99.79.146.226:5006/webhooks/rest/webhook"
+    data = json.dumps({
+        "sender": str(sender),
+        "message":str(message)
+    })                                                                
+    data_received = requests.post(url, data=data,headers={"Content-Type":"application/json"})
+    received_messages = json.dumps("  ".join([x['text'] for x in data_received.json()]).replace('\n',' '))
+    print(received_messages) 
+    def remove_emojis(data):
             emoj = re.compile("["
                 u"\U0001F600-\U0001F64F"  # emoticons
                 u"\U0001F300-\U0001F5FF"  # symbols & pictographs
@@ -28,23 +34,23 @@ def SERVER_MESSAGE(chatid,message):
                 u"\u3030"
                             "]+", re.UNICODE)
             return re.sub(emoj, '', data)
-        if received_messages is not None:
-            text = remove_emojis(received_messages).split(' ')
-            text = [x for x in text if not str(x).startswith('\\')] 
-            text = " ".join(text)  
-            text = str(text).strip()
-            print(text)
-            return  text
-        else:
-            print("/"*50)
-            print("-->> CHAT API is returning NONE. So BOT will not Reply.")
-            print("/"*50)
-            return None
+    if received_messages is not None:
+        text = remove_emojis(received_messages).split(' ')
+        text = [x for x in text if not str(x).startswith('\\')] 
+        text = " ".join(text)  
+        text = str(text).strip()
+        print(text)
+        return  text
+    else:
+        print("/"*50)
+        print("-->> CHAT API is returning NONE. So BOT will not Reply.")
+        print("/"*50)
+        return None
+
 
  
+
 
 if __name__ == "__main__":
-    chatid= '0001'
-    SERVER_MESSAGE(chatid,str("mashood@gmail.com is my email 40100 hello")) 
-
- 
+    x=(SERVER_MESSAGE("123",str("hello")))
+    print(x)
