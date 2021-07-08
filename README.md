@@ -1,7 +1,7 @@
 # konectai_fbmessenger
 Facebook Automessenfer with custom chatbot API.
 
-There must be CHAT_API server running at http://localhost:8000/
+There must be CHAT_API server running at http://99.79.146.226:5006/webhooks/rest/webhook
 
 
 ## Run the Project
@@ -32,7 +32,7 @@ This file fecthes list of firends determined as maximum contacts to be fetched
 This file handles the chat activity with the users and it reads data from fresh_fetched_contacts.txt to keep track of targetted users.
 
 ### api.py
-There must be CHAT_API server running at http://localhost:8000/
+There must be CHAT_API server running at http://99.79.146.226:5006/webhooks/rest/webhook
 
 This file is called by auto_messenger.py files and it send request to CHAT_BOT SERVER for a reply.
 
