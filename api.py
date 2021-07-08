@@ -11,7 +11,6 @@ def SERVER_MESSAGE(sender,message):
     })                                                                
     data_received = requests.post(url, data=data,headers={"Content-Type":"application/json"})
     received_messages = json.dumps("  ".join([x['text'] for x in data_received.json()]).replace('\n',' '))
-    print(received_messages) 
     def remove_emojis(data):
             emoj = re.compile("["
                 u"\U0001F600-\U0001F64F"  # emoticons
@@ -39,7 +38,6 @@ def SERVER_MESSAGE(sender,message):
         text = [x for x in text if not str(x).startswith('\\')] 
         text = " ".join(text)  
         text = str(text).strip()
-        print(text)
         return  text
     else:
         print("/"*50)
@@ -52,5 +50,5 @@ def SERVER_MESSAGE(sender,message):
 
 
 if __name__ == "__main__":
-    x=(SERVER_MESSAGE("123",str("hello")))
-    print(x)
+    reply=(SERVER_MESSAGE("123",str("hello")))
+    print(reply)
