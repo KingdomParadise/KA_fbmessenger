@@ -52,3 +52,5 @@ def SERVER_MESSAGE(sender,message):
 if __name__ == "__main__":
     reply=(SERVER_MESSAGE("123",str("hello")))
     print(reply)
+
+    # debugged
